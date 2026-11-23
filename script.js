@@ -1,4 +1,12 @@
-const CATEGORY_LIST = ['Toys & Games', 'Books', 'Creative & Educational', 'Outdoor & Active Play', 'Furniture & Room Decor', 'Clothes & Accessories', 'Other Wishes'];
+const CATEGORY_LIST = [
+  'Zabawki i gry',
+  'Książki',
+  'Kreatywne i edukacyjne',
+  'Zabawa na zewnątrz i ruch',
+  'Meble i dekoracje pokoju',
+  'Ubrania i akcesoria',
+  'Inne życzenia'
+];
 const money = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN', maximumFractionDigits: 0 });
 const grid = document.querySelector('#gift-grid');
 const categoryFilter = document.querySelector('#category-filter');
@@ -26,7 +34,7 @@ function showToast(message) {
 }
 function getStoreUrl(gift) {
   if (isValidStoreUrl(gift.url)) return gift.url;
-  const query = encodeURIComponent(gift.name || 'gift');
+  const query = encodeURIComponent(gift.name || 'prezent');
   return `https://www.google.com/search?tbm=shop&q=${query}`;
 }
 function createCard(gift) {
@@ -36,12 +44,12 @@ function createCard(gift) {
   imageWrap.className = 'card-image';
   const image = document.createElement('img');
   image.src = safeImage(gift.image);
-  image.alt = safeText(gift.name, 'Gift idea');
+  image.alt = safeText(gift.name, 'Pomysł na prezent');
   image.loading = 'lazy';
   image.onerror = () => { image.onerror = null; image.src = 'images/gift-placeholder.svg'; };
   const pill = document.createElement('span');
   pill.className = 'category-pill';
-  pill.textContent = safeText(gift.category, 'Other Wishes');
+  pill.textContent = safeText(gift.category, 'Inne życzenia');
   imageWrap.append(image, pill);
   const body = document.createElement('div');
   body.className = 'card-body';
@@ -49,27 +57,27 @@ function createCard(gift) {
   titleRow.className = 'card-title-row';
   const title = document.createElement('h3');
   title.className = 'card-title';
-  title.textContent = safeText(gift.name, 'A little wish');
+  title.textContent = safeText(gift.name, 'Małe życzenie');
   const price = document.createElement('span');
   price.className = 'card-price';
-  price.textContent = Number.isFinite(Number(gift.price)) ? money.format(Number(gift.price)) : 'Price varies';
+  price.textContent = Number.isFinite(Number(gift.price)) && Number(gift.price) > 0 ? money.format(Number(gift.price)) : 'Cena do ustalenia';
   titleRow.append(title, price);
   const description = document.createElement('p');
   description.className = 'card-description';
-  description.textContent = safeText(gift.shortDescription, 'A lovely idea for Christmas.');
+  description.textContent = safeText(gift.shortDescription, 'Śliczny pomysł na Święta.');
   const actions = document.createElement('div');
   actions.className = 'card-actions';
   const details = document.createElement('button');
   details.type = 'button';
   details.className = 'card-details';
-  details.textContent = 'View details';
+  details.textContent = 'Zobacz szczegóły';
   details.addEventListener('click', () => openDetails(gift));
   const store = document.createElement('a');
   store.className = 'card-store';
   store.href = getStoreUrl(gift);
   store.target = '_blank';
   store.rel = 'noopener noreferrer';
-  store.textContent = 'View in store ↗';
+  store.textContent = 'Zobacz w sklepie ↗';
   actions.append(details, store);
   body.append(titleRow, description, actions);
   article.append(imageWrap, body);
@@ -77,23 +85,24 @@ function createCard(gift) {
 }
 function render() {
   const category = categoryFilter.value;
-  const query = searchInput.value.trim().toLocaleLowerCase();
-  let visible = gifts.filter(gift => (category === 'all' || gift.category === category) && safeText(gift.name).toLocaleLowerCase().includes(query));
+  const query = searchInput.value.trim().toLocaleLowerCase('pl');
+  let visible = gifts.filter(gift => (category === 'all' || gift.category === category) && safeText(gift.name).toLocaleLowerCase('pl').includes(query));
   if (priceSort.value === 'low') visible.sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
   if (priceSort.value === 'high') visible.sort((a, b) => Number(b.price || 0) - Number(a.price || 0));
   grid.replaceChildren(...visible.map(createCard));
-  count.textContent = `${visible.length} ${visible.length === 1 ? 'gift idea' : 'gift ideas'}${visible.length !== gifts.length ? ` · ${gifts.length} in all` : ''}`;
+  const form = visible.length === 1 ? 'pomysł na prezent' : 'pomysłów na prezenty';
+  count.textContent = `${visible.length} ${form}${visible.length !== gifts.length ? ` · łącznie ${gifts.length}` : ''}`;
   emptyState.hidden = visible.length > 0;
 }
 function openDetails(gift) {
   document.querySelector('#dialog-image').src = safeImage(gift.image);
-  document.querySelector('#dialog-image').alt = safeText(gift.name, 'Gift idea');
-  document.querySelector('#dialog-title').textContent = safeText(gift.name, 'A little wish');
-  document.querySelector('#dialog-category').textContent = safeText(gift.category, 'Other Wishes');
-  document.querySelector('#dialog-price').textContent = Number.isFinite(Number(gift.price)) ? `About ${money.format(Number(gift.price))}` : 'Price varies';
+  document.querySelector('#dialog-image').alt = safeText(gift.name, 'Pomysł na prezent');
+  document.querySelector('#dialog-title').textContent = safeText(gift.name, 'Małe życzenie');
+  document.querySelector('#dialog-category').textContent = safeText(gift.category, 'Inne życzenia');
+  document.querySelector('#dialog-price').textContent = Number.isFinite(Number(gift.price)) && Number(gift.price) > 0 ? `Około ${money.format(Number(gift.price))}` : 'Cena do ustalenia';
   document.querySelector('#dialog-description').textContent = safeText(gift.description, safeText(gift.shortDescription));
   const variant = document.querySelector('#dialog-variant');
-  variant.textContent = gift.variant ? `Details: ${gift.variant}` : '';
+  variant.textContent = gift.variant ? `Informacje: ${gift.variant}` : '';
   variant.hidden = !gift.variant;
   document.querySelector('#dialog-store').href = getStoreUrl(gift);
   dialog.showModal();
@@ -101,20 +110,20 @@ function openDetails(gift) {
 async function copyWishlistUrl() {
   try {
     await navigator.clipboard.writeText(window.location.href);
-    showToast('Wishlist link copied — ready to share!');
+    showToast('Skopiowano link do listy — gotowy do udostępnienia!');
   } catch {
     const input = document.createElement('textarea');
     input.value = window.location.href;
     input.style.position = 'fixed'; input.style.opacity = '0';
     document.body.append(input); input.select();
     const copied = document.execCommand('copy'); input.remove();
-    showToast(copied ? 'Wishlist link copied — ready to share!' : 'Copy this page address to share the wishlist.');
+    showToast(copied ? 'Skopiowano link do listy — gotowy do udostępnienia!' : 'Skopiuj adres strony, aby udostępnić listę.');
   }
 }
 async function shareWishlist() {
   if (navigator.share) {
-    try { await navigator.share({ title: document.title, text: `A Christmas wishlist for ${document.querySelector('#child-name').textContent}`, url: window.location.href }); }
-    catch (error) { if (error.name !== 'AbortError') showToast('Sharing is not available right now.'); }
+    try { await navigator.share({ title: document.title, text: `Świąteczna lista życzeń dla ${document.querySelector('#child-name').textContent}`, url: window.location.href }); }
+    catch (error) { if (error.name !== 'AbortError') showToast('Udostępnianie jest teraz niedostępne.'); }
   } else await copyWishlistUrl();
 }
 function setUpMenu() {
@@ -123,25 +132,25 @@ function setUpMenu() {
   button.addEventListener('click', () => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded', String(!expanded));
-    button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+    button.setAttribute('aria-label', expanded ? 'Otwórz nawigację' : 'Zamknij nawigację');
     nav.classList.toggle('open', !expanded);
   });
   nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('open'); button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-label', 'Open navigation');
+    nav.classList.remove('open'); button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-label', 'Otwórz nawigację');
   }));
 }
 async function loadWishlist() {
   try {
     const response = await fetch('gifts.json');
-    if (!response.ok) throw new Error('Could not load gifts.json');
+    if (!response.ok) throw new Error('Nie udało się wczytać gifts.json');
     const data = await response.json();
-    if (!Array.isArray(data.gifts)) throw new Error('Gift data is missing');
+    if (!Array.isArray(data.gifts)) throw new Error('Brakuje danych prezentów');
     gifts = data.gifts;
     if (data.title) { document.title = data.title; document.querySelector('#page-title').innerHTML = `${safeText(data.title).replace(/\s+/, '<br>')}`; }
     if (data.childName) document.querySelector('#child-name').textContent = data.childName;
     if (data.description) document.querySelector('#intro-copy').textContent = data.description;
     const heading = document.querySelector('#wishlist-heading');
-    if (data.childName) heading.innerHTML = `A few things to make<br><em>${data.childName}’s eyes sparkle</em>`;
+    if (data.childName) heading.innerHTML = `Kilka pomysłów, by<br><em>oczy ${data.childName} się świeciły</em>`;
     const presentCategories = CATEGORY_LIST.filter(category => gifts.some(gift => gift.category === category));
     for (const category of presentCategories) {
       const option = document.createElement('option'); option.value = category; option.textContent = category; categoryFilter.append(option);
@@ -150,7 +159,7 @@ async function loadWishlist() {
   } catch (error) {
     console.error(error);
     grid.hidden = true;
-    count.textContent = 'Wishlist unavailable';
+    count.textContent = 'Lista życzeń niedostępna';
     errorState.hidden = false;
   }
 }
