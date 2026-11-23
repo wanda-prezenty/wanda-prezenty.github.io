@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="A little collection of Christmas wishes for Wanda.">
+  <title>Christmas Wishlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Christmas Wishlist home"><span class="brand-star" aria-hidden="true">✳</span> little wishes</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#wishlist">The wishlist</a>
+      <button class="nav-share" type="button" data-share>Share this list <span aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="page-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A little Christmas magic <span class="eyebrow-line"></span></p>
+        <h1 id="page-title">Christmas<br><em>Wishlist</em></h1>
+        <p class="hero-for">A collection of wishes for <span id="child-name">Wanda</span></p>
+        <p class="hero-description" id="intro-copy">Christmas is a time for little wishes and big smiles. Here is a collection of gift ideas that would make this Christmas extra special.</p>
+        <a class="button button-dark" href="#wishlist">Explore the wishlist <span aria-hidden="true">↓</span></a>
+        <p class="hero-note"><span aria-hidden="true">✦</span> Curated with love, shared with joy <span aria-hidden="true">✦</span></p>
+      </div>
+      <div class="hero-art" aria-label="A peaceful Christmas scene with evergreen branches and wrapped gifts" role="img">
+        <div class="art-sun"></div><span class="art-star star-one">✳</span><span class="art-star star-two">✦</span>
+        <div class="pine pine-back"></div><div class="pine pine-front"></div>
+        <div class="present present-large"><span></span><i></i></div><div class="present present-small"><span></span><i></i></div>
+        <div class="ornament ornament-one"></div><div class="ornament ornament-two"></div>
+        <p class="art-caption">the most wonderful<br>time of the year</p>
+      </div>
+      <span class="snowflake snow-one" aria-hidden="true">✳</span><span class="snowflake snow-two" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="wishlist-section" id="wishlist" aria-labelledby="wishlist-heading">
+      <div class="section-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Thoughtfully picked <span class="eyebrow-line"></span></p>
+        <h2 id="wishlist-heading">A few things to make<br><em>her eyes sparkle</em></h2>
+        <p class="section-intro">Browse the ideas, find a favorite, and open the shop link for more details.</p>
+      </div>
+
+      <div class="toolbar" aria-label="Wishlist controls">
+        <div class="filter-wrap"><label class="visually-hidden" for="category-filter">Filter by category</label>
+          <select id="category-filter"><option value="all">All categories</option></select>
+        </div>
+        <label class="search-wrap"><span class="visually-hidden">Search gifts</span><span aria-hidden="true">⌕</span><input id="gift-search" type="search" placeholder="Find a little wish…"></label>
+        <label class="sort-wrap"><span class="visually-hidden">Sort gifts</span><select id="price-sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
+      </div>
+      <div class="results-line"><p id="gift-count" aria-live="polite">A little moment…</p><button class="text-button" type="button" data-copy>Copy wishlist link <span aria-hidden="true">↗</span></button></div>
+      <div class="gift-grid" id="gift-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span class="empty-star" aria-hidden="true">✳</span><h3>No wishes found</h3><p>Try a different search or choose another category.</p><button class="button button-outline" id="clear-filters" type="button">Show all wishes</button></div>
+      <div class="error-state" id="error-state" hidden><h3>Our wishes are taking a little nap</h3><p>We couldn’t load the gift list. Please refresh the page in a moment.</p></div>
+    </section>
+
+    <section class="closing-note" aria-label="Christmas greeting"><span class="closing-ornament" aria-hidden="true">✳</span><p>May your Christmas be filled with<br><em>little moments of wonder.</em></p><span class="closing-rule"></span></section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-mark" href="#home">little wishes <span aria-hidden="true">✦</span></a><p>Made with love for a very merry Christmas.</p><a class="back-top" href="#home">Back to top ↑</a></footer>
+
+  <dialog class="gift-dialog" id="gift-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close gift details">×</button>
+    <div class="dialog-image-wrap"><img id="dialog-image" src="" alt=""></div>
+    <div class="dialog-content"><p class="dialog-category" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p class="dialog-description" id="dialog-description"></p><p class="dialog-variant" id="dialog-variant" hidden></p><a class="button button-dark dialog-store" id="dialog-store" href="#" target="_blank" rel="noopener noreferrer">View in store <span aria-hidden="true">↗</span></a><p class="inspiration-note">An inspiration only — no reservations or purchases are made here.</p></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "title": "Christmas Wishlist",
+  "childName": "Wanda",
+  "description": "Christmas is a time for little wishes and big smiles. Here is a collection of gift ideas that would make this Christmas extra special.",
+  "gifts": [
+    {
+      "id": 1,
+      "name": "Wooden Learning Tower",
+      "image": "images/learning-tower.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=wooden+learning+tower+children",
+      "price": 450,
+      "category": "Toys & Games",
+      "shortDescription": "A little helper’s place at the kitchen counter.",
+      "description": "A sturdy wooden learning tower that lets little ones safely join in with everyday kitchen moments. A thoughtful, practical gift that can grow with the family.",
+      "variant": "Natural wood"
+    },
+    {
+      "id": 2,
+      "name": "The Little Prince",
+      "image": "images/book.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=The+Little+Prince+illustrated+book+Polish",
+      "price": 45,
+      "category": "Books",
+      "shortDescription": "A timeless story to read together, again and again.",
+      "description": "A beautifully illustrated edition of a much-loved classic, perfect for bedtime reading and discovering something new with every reread.",
+      "variant": "Illustrated Polish edition"
+    },
+    {
+      "id": 3,
+      "name": "Watercolor Art Set",
+      "image": "images/art-set.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=children+watercolor+art+set",
+      "price": 89,
+      "category": "Creative & Educational",
+      "shortDescription": "Everything for a quiet afternoon of making and imagining.",
+      "description": "A gentle starter set for painting, drawing and letting imagination wander. Look for child-friendly paints, a small palette, brushes and a pad of watercolor paper.",
+      "variant": "Soft pastel colors"
+    },
+    {
+      "id": 4,
+      "name": "Balance Bike",
+      "image": "images/balance-bike.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=children+balance+bike+sage+green",
+      "price": 320,
+      "category": "Outdoor & Active Play",
+      "shortDescription": "For fresh-air adventures and wobbly first rides.",
+      "description": "A lightweight balance bike encourages confidence, coordination and outdoor play. Check the recommended child height and adjustable seat range before choosing a model.",
+      "variant": "Muted sage; adjustable seat"
+    },
+    {
+      "id": 5,
+      "name": "Reading Nook Cushion",
+      "image": "images/cushion.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=children+reading+nook+floor+cushion",
+      "price": 180,
+      "category": "Furniture & Room Decor",
+      "shortDescription": "A soft little spot for books, daydreams and rest.",
+      "description": "A generously sized floor cushion can turn a quiet corner into a cozy reading nook. Choose a durable, washable cover in a warm neutral shade.",
+      "variant": "Oatmeal linen-look fabric"
+    },
+    {
+      "id": 6,
+      "name": "Knitted Winter Scarf",
+      "image": "images/scarf.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=children+knitted+winter+scarf+burgundy",
+      "price": 75,
+      "category": "Clothes & Accessories",
+      "shortDescription": "A soft, snug layer for chilly winter walks.",
+      "description": "A cozy knitted scarf in a classic winter shade to keep little shoulders warm on cold-weather outings. Choose a soft, easy-care yarn in the right length for your child.",
+      "variant": "Burgundy; soft wool blend"
+    },
+    {
+      "id": 7,
+      "name": "Wooden Music Box",
+      "image": "images/music-box.svg",
+      "url": "https://www.google.com/search?tbm=shop&q=wooden+music+box+children+Christmas",
+      "price": 110,
+      "category": "Other Wishes",
+      "shortDescription": "A keepsake-sized melody for a bedside table.",
+      "description": "A small keepsake music box adds a little wonder to a bedroom shelf. Look for a sturdy wooden finish and a gentle, familiar tune.",
+      "variant": "Natural wood finish"
+    }
+  ]
+}
