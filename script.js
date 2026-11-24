@@ -147,7 +147,6 @@ async function loadWishlist() {
     if (!Array.isArray(data.gifts)) throw new Error('Brakuje danych prezentów');
     gifts = data.gifts;
     if (data.title) { document.title = data.title; document.querySelector('#page-title').innerHTML = `${safeText(data.title).replace(/\s+/, '<br>')}`; }
-    if (data.childName) document.querySelector('#child-name').textContent = data.childName;
     if (data.description) document.querySelector('#intro-copy').textContent = data.description;
     const heading = document.querySelector('#wishlist-heading');
     if (data.childName) heading.innerHTML = `Kilka pomysłów, by<br><em>oczy Wandzi się świeciły</em>`;
