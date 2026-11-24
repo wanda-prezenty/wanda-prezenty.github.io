@@ -110,19 +110,19 @@ function openDetails(gift) {
 async function copyWishlistUrl() {
   try {
     await navigator.clipboard.writeText(window.location.href);
-    showToast('Skopiowano link do listy — gotowy do udostępnienia!');
+    showToast('Skopiowano link do listy - gotowy do udostępnienia!');
   } catch {
     const input = document.createElement('textarea');
     input.value = window.location.href;
     input.style.position = 'fixed'; input.style.opacity = '0';
     document.body.append(input); input.select();
     const copied = document.execCommand('copy'); input.remove();
-    showToast(copied ? 'Skopiowano link do listy — gotowy do udostępnienia!' : 'Skopiuj adres strony, aby udostępnić listę.');
+    showToast(copied ? 'Skopiowano link do listy - gotowy do udostępnienia!' : 'Skopiuj adres strony, aby udostępnić listę.');
   }
 }
 async function shareWishlist() {
   if (navigator.share) {
-    try { await navigator.share({ title: document.title, text: `Świąteczna lista życzeń dla ${document.querySelector('#child-name').textContent}`, url: window.location.href }); }
+    try { await navigator.share({ title: document.title, text: `Świąteczna lista życzeń dla Wandzi`, url: window.location.href }); }
     catch (error) { if (error.name !== 'AbortError') showToast('Udostępnianie jest teraz niedostępne.'); }
   } else await copyWishlistUrl();
 }
@@ -150,7 +150,7 @@ async function loadWishlist() {
     if (data.childName) document.querySelector('#child-name').textContent = data.childName;
     if (data.description) document.querySelector('#intro-copy').textContent = data.description;
     const heading = document.querySelector('#wishlist-heading');
-    if (data.childName) heading.innerHTML = `Kilka pomysłów, by<br><em>oczy ${data.childName} się świeciły</em>`;
+    if (data.childName) heading.innerHTML = `Kilka pomysłów, by<br><em>oczy Wandzi się świeciły</em>`;
     const presentCategories = CATEGORY_LIST.filter(category => gifts.some(gift => gift.category === category));
     for (const category of presentCategories) {
       const option = document.createElement('option'); option.value = category; option.textContent = category; categoryFilter.append(option);
