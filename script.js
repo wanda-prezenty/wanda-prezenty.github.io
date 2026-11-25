@@ -7,6 +7,21 @@ const CATEGORY_LIST = [
   'Ubrania i akcesoria',
   'Inne życzenia'
 ];
+const GIFT_IMAGES = {
+  1: 'https://babywood.pl/environment/cache/images/0_0_productGfx_bce245f0975e477ee25d19f58ee26263.jpg',
+  2: 'https://a.allegroimg.com/original/118e34/01db40e74d8e8b770047de2acbbc/LITTLE-DUTCH-Drewniana-Rozowa-Zjezdzalnia-z-Autkami',
+  3: 'https://www.kaufland.pl/product-images/original/5c862d23fe92394df4ce7f8baf81b695.jpg',
+  4: 'https://empikmedia.pl/c/8/c0/1321168406o.jpg',
+  5: 'https://empikmedia.pl/c/j/a-kuku-kocham-cie-okladka_1595002008.jpg',
+  6: 'https://www.ikea.com/pl/pl/images/products/trofast-ramka-bialy__0737182_pe740925_s5.jpg',
+  7: 'https://www.smyk.com/media/product/large/s/m/smartmax-my-first-safari-animals-zestaw-magnetyczny-18m-i7334259.jpg',
+  8: 'https://www.smyk.com/media/product/large/d/u/dumel-discovery-odkrywczy-domek-zabawka-interaktywna-i2874699.jpg',
+  9: 'https://www.smyk.com/media/product/large/b/o/boze-narodzenie-ksiazka-magnetyczna-i8430198.jpg',
+  10: 'https://www.smyk.com/media/product/large/n/a/na-budowie-ksiazka-dzwiekowa-9788382223385-i7917198.jpg',
+  11: 'https://www.smyk.com/media/product/large/f/i/fisher-price-lesni-przyjaciele-kamper-zestaw-i8284971.jpg',
+  12: 'https://mamabrum.pl/userdata/public/gfx/5538/pralka-drewniana-dla-dzieci-mamabrum-mamabrum.jpg',
+  13: 'https://empikmedia.pl/c/5/8/0/1595008534o.jpg'
+};
 const money = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN', maximumFractionDigits: 0 });
 const grid = document.querySelector('#gift-grid');
 const categoryFilter = document.querySelector('#category-filter');
@@ -21,6 +36,7 @@ let toastTimer;
 
 function safeText(value, fallback = '') { return typeof value === 'string' ? value : fallback; }
 function safeImage(path) { return safeText(path, 'images/gift-placeholder.svg'); }
+function giftImage(gift) { return GIFT_IMAGES[gift.id] || safeImage(gift.image); }
 function isValidStoreUrl(value) {
   try { const url = new URL(value); return url.protocol === 'https:' || url.protocol === 'http:'; }
   catch { return false; }
@@ -43,7 +59,7 @@ function createCard(gift) {
   const imageWrap = document.createElement('div');
   imageWrap.className = 'card-image';
   const image = document.createElement('img');
-  image.src = safeImage(gift.image);
+  image.src = giftImage(gift);
   image.alt = safeText(gift.name, 'Pomysł na prezent');
   image.loading = 'lazy';
   image.onerror = () => { image.onerror = null; image.src = 'images/gift-placeholder.svg'; };
@@ -95,7 +111,7 @@ function render() {
   emptyState.hidden = visible.length > 0;
 }
 function openDetails(gift) {
-  document.querySelector('#dialog-image').src = safeImage(gift.image);
+  document.querySelector('#dialog-image').src = giftImage(gift);
   document.querySelector('#dialog-image').alt = safeText(gift.name, 'Pomysł na prezent');
   document.querySelector('#dialog-title').textContent = safeText(gift.name, 'Małe życzenie');
   document.querySelector('#dialog-category').textContent = safeText(gift.category, 'Inne życzenia');
