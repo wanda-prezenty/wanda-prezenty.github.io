@@ -6,12 +6,12 @@
     {
       "id": 1,
       "name": "Bujak drewniany + zjeżdżalnia / ścianka wspinaczkowa M – Babywood",
-      "image": "images/gift-placeholder.svg",
+      "image": "https://babywood.pl/environment/cache/images/productGfx_2784_1600_1600/bujak---zjezdzalnia-M-szary.webp",
       "url": "https://babywood.pl/pl/p/Bujak-drewniany-zjezdzalnia-scianka-wspinaczkowa-M/121",
       "price": 582,
       "category": "Zabawki i gry",
       "shortDescription": "Wielofunkcyjny drewniany bujak Montessori ze zjeżdżalnią i ścianką wspinaczkową. Z poduszką do bujaka +180 zł",
-      "description": "Wielofunkcyjny bujak Montessori z deską, która z jednej strony służy jako zjeżdżalnia, a z drugiej ma uchwyty lub kamienie do wspinaczki. Wspiera równowagę, koordynację i motorykę dużą. Podczas zabawy należy zapewnić dziecku nadzór osoby dorosłej.",
+      "description": "Wielofunkcyjny bujak Montessori z deską, która z jednej strony służy jako zjeżdżalnia, a z drugiej ma uchwyty lub kamienie do wspinaczki. Wspiera równowagę, koordynację i sprawność ruchową dziecka.",
       "variant": "Rozmiar M"
     },
     {
@@ -29,7 +29,7 @@
       "id": 3,
       "name": "Stolik 'wodny'",
       "image": "images/gift-placeholder.svg",
-      "url": "https://www.kaufland.pl/product/603285137/?msclkid=ffdb1b031c3e1e32562070072547064d&utm_source=bing&utm_medium=cpc&utm_campaign=PL_KM_SC_PMax_PG_High&utm_term=2331445687895144&utm_content=PL_SC_PMax_High%20price%20products",
+      "url": "https://www.kaufland.pl/product/603285137/",
       "price": 179,
       "category": "Inne życzenia",
       "shortDescription": "Stolik może być używany zimą do zabaw kreatywnych, a latem do wody. Mają podobny w żłobku :)",
@@ -44,7 +44,7 @@
       "price": 28,
       "category": "Książki",
       "shortDescription": "Książeczka na dobranoc z serii Akademia Mądrego Dziecka. Może być inna, nie mamy żadnej :)",
-      "description": "Książeczka z serii Wieczorynka Akademii Mądrego Dziecka, przygotowana do wspólnego czytania przed snem. Pomaga stworzyć spokojny wieczorny rytuał i wyciszyć się po dniu pełnym wrażeń.",
+      "description": "Książeczka z serii Wieczorynka Akademii Mądrego Dziecka, przygotowana do wspólnego czytania przed snem. Pomaga stworzyć spokojny wieczorny rytuał i wyciszyć się po dniu.",
       "variant": "Seria ze światełkami"
     },
     {
@@ -66,7 +66,7 @@
       "price": 399,
       "category": "Meble i dekoracje pokoju",
       "shortDescription": "Regał z pojemnikami do przechowywania zabawek i akcesoriów. Bo Wandzia ma ich dużo i jest zawrót głowy :D",
-      "description": "Zestaw TROFAST z regałem w wykończeniu jasna sosna bejcowana na biało i białymi pojemnikami. Praktyczne miejsce na zabawki oraz dziecięce skarby, które pomaga utrzymać porządek w pokoju.",
+      "description": "Zestaw TROFAST z regałem w wykończeniu jasna sosna bejcowana na biało i białymi pojemnikami. Praktyczne miejsce na zabawki oraz dziecięce skarby, które pomaga utrzymać porządek.",
       "variant": "Jasna sosna bejcowana na biało, białe pojemniki"
     },
     {
@@ -77,7 +77,7 @@
       "price": 159,
       "category": "Zabawki i gry",
       "shortDescription": "18 magnetycznych elementów do budowania zwierząt safari. Miękkie i bardzo popularne wśród dzieci są te zestawy :)",
-      "description": "Zestaw konstrukcyjny SMARTMAX dla najmłodszych z dużymi elementami magnetycznymi. Dziecko może łączyć części i tworzyć zwierzęta, rozwijając wyobraźnię oraz sprawność dłoni.",
+      "description": "Zestaw konstrukcyjny SMARTMAX dla najmłodszych z dużymi elementami magnetycznymi. Dziecko może łączyć części i tworzyć zwierzęta, rozwijając wyobraźnię oraz sprawność rąk.",
       "variant": "18 elementów"
     },
     {
@@ -161,7 +161,7 @@
       "id": 15,
       "name": "Kotek w torbie",
       "image": "images/IMG_4573.jpeg",
-      "url": "https://www.mediaexpert.pl/zabawki/zabawki-dla-najmlodszych/pluszaki/maskotka-little-dutch-kot-marley-w-torbie-ld4517?msclkid=c1db68e7f7c71f257edb03e16bd0d7bd&utm_source=bing&utm_medium=cpc&utm_campaign=MS%20Shopping%20%3E%20All%20*ROAS&utm_term=4587643558451513&utm_content=Ad%20group%20%231",
+      "url": "https://www.mediaexpert.pl/zabawki/zabawki-dla-najmlodszych/pluszaki/maskotka-little-dutch-kot-marley-w-torbie-ld4517",
       "price": 130,
       "category": "Zabawki i gry",
       "shortDescription": "Przytulanka kotka",
