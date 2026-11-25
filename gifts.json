@@ -149,13 +149,24 @@
     {
       "id": 14,
       "name": "CzuCzu – Moje Pierwsze Puzzle do pary",
-      "image": "images/gift-placeholder.svg",
+      "image": "images/IMG_4574.jpeg",
       "url": "https://www.empik.com/czuczu-moje-pierwsze-puzzle-do-pary-dla-dzieci-15-mies-opracowanie-zbiorowe,p1439228171,ksiazka-p",
       "price": 22,
       "category": "Kreatywne i edukacyjne",
       "shortDescription": "Pierwsze puzzle do dopasowywania par",
       "description": "Zestaw prostych puzzli do pary dla małych dzieci. Dopasowywanie elementów wspiera ćwiczenie spostrzegawczości, koncentracji i sprawności rąk.",
       "variant": "Dla dzieci od 15 miesięcy"
+    },
+    {
+      "id": 15,
+      "name": "Kotek w torbie",
+      "image": "images/IMG_4573.jpeg",
+      "url": "https://www.mediaexpert.pl/zabawki/zabawki-dla-najmlodszych/pluszaki/maskotka-little-dutch-kot-marley-w-torbie-ld4517?msclkid=c1db68e7f7c71f257edb03e16bd0d7bd&utm_source=bing&utm_medium=cpc&utm_campaign=MS%20Shopping%20%3E%20All%20*ROAS&utm_term=4587643558451513&utm_content=Ad%20group%20%231",
+      "price": 130,
+      "category": 'Zabawki i gry',
+      "shortDescription": "Przytulanka kotka",
+      "description": "Wandzia uwielbia kotki :)",
+      "variant": ""
     }
   ]
 }
